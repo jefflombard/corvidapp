@@ -3,6 +3,9 @@ import { StyleSheet, Platform, Image, Text, View, ScrollView } from 'react-nativ
 import firebase from 'react-native-firebase';
 
 import Login from './scenes/Login';
+import { initStoreForCorvid } from './utilities';
+
+const store = initStoreForCorvid();
 
 export default class App extends React.Component {
   render() {
