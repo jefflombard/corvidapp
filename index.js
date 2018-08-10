@@ -1,3 +1,3 @@
 import { AppRegistry } from 'react-native';
-import App from './App';
-AppRegistry.registerComponent('corvid', () => App);
+import AppProvider from './AppProvider.js';
+AppRegistry.registerComponent('corvid', () => AppProvider);
