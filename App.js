@@ -1,7 +1,10 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-export default class App extends React.Component {
+import { connect } from 'react-redux';
+
+class App extends React.Component {
+
   render() {
     return (
       <View>
@@ -10,3 +13,9 @@ export default class App extends React.Component {
     );
   }
 }
+
+mapStateToProps = state => {
+  return { auth: state.auth }
+};
+
+export default connect(mapStateToProps)(App)

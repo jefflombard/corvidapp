@@ -5,9 +5,7 @@ export default (state = initialState, action) => {
     case 'AUTH_STATUS_CHANGED':
       return {
         ...state,
-        auth: {
           authorized: action.payload
-        }
       }
     case 'EMAIL_CHANGED':
       return {
