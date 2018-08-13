@@ -1,21 +1,18 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-
+import { Scene, Router, Stack } from 'react-native-router-flux';
 import { connect } from 'react-redux';
+import { View } from 'react-native';
 
-class App extends React.Component {
+import LoginScene from './scenes/Login';
 
-  render() {
-    return (
-      <View>
+const App = () => (
+  <View>
+    <Router>
+      <Scene key="root">
+        <Scene key="login" component={LoginScene} title="Login"/>
+      </Scene>
+    </Router>
+  </View>
+);
 
-      </View>
-    );
-  }
-}
-
-mapStateToProps = state => {
-  return { auth: state.auth }
-};
-
-export default connect(mapStateToProps)(App)
+export default App;
