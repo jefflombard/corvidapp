@@ -24,7 +24,7 @@ class App extends Component {
     console.log(this.props,this.state,this.dispatch)
     return (
     <View>
-      {renderRouter(true)}
+      {renderRouter(false)}
     </View>
   );
   }
