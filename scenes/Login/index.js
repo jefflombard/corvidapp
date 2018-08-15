@@ -1,12 +1,25 @@
 import React, { Component } from 'react';
-import { ImageBackground } from 'react-native';
+import { ImageBackground, StyleSheet, Text } from 'react-native';
 
 class LoginScene extends Component {
   render() {
     return (
-
+      <ImageBackground
+                style={styles.background}
+                source={require('../../assets/bg.png')}
+                >
+        <Text>test</Text>
+      </ImageBackground>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  background: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+});
 
 export default LoginScene;

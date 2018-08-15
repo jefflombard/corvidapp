@@ -20,17 +20,12 @@ const renderRouter = (showRouter) => {
 };
 
 class App extends Component {
-  render(){
-    console.log(this.props,this.state,this.dispatch)
-    return (
-    <View>
-      {renderRouter(false)}
-    </View>
-  );
+  render() {
+    return renderRouter(false);
   }
 }
 
 
-const mapStateToProps = (state) => ({ auth: state.auth })
+const mapStateToProps = state => ({ auth: state.auth });
 
 export default connect(mapStateToProps)(App);
