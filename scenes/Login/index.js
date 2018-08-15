@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import { ImageBackground, StyleSheet, Text } from 'react-native';
 
+import LogoContainer from './LogoContainer';
+
 class LoginScene extends Component {
   render() {
     return (
       <ImageBackground
-                style={styles.background}
-                source={require('../../assets/bg.png')}
-                >
-        <Text>test</Text>
+        style={styles.background}
+        source={require('../../assets/bg.png')}
+        >
+        <LogoContainer />
       </ImageBackground>
     );
   }
