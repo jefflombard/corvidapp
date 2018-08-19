@@ -1,32 +1,36 @@
 const initialState = {
-  signUp: false,
+  isSignUp: false,
+  password: '',
+  confirmPassword: '',
+  email: '',
 };
 
 export default (state = initialState, action) => {
+  const { isSignUp, password, confirmPassword } = state;
+  const passwordMatch = confirmPassword === password;
+
   switch (action.type) {
     case 'TOGGLE_SIGN_UP':
       return {
         ...state,
-        signUp: !state.signUp,
+        isSignUp: !isSignUp,
       };
-    case 'AUTH_STATUS_CHANGED':
+    case 'EMAIL_TEXT_CHANGED':
       return {
         ...state,
-        authorized: action.payload,
+        email: action.payload,
       };
-    case 'EMAIL_CHANGED':
+    case 'PASSWORD_TEXT_CHANGED':
       return {
         ...state,
-        auth: {
-          email: action.payload,
-        },
+        password: action.payload,
+        passwordMatch,
       };
-    case 'PASSWORD_CHANGED':
+    case 'CONFIRM_PASSWORD_TEXT_CHANGED':
       return {
         ...state,
-        auth: {
-          password: action.payload,
-        },
+        confirmPassword: action.payload,
+        passwordMatch,
       };
     default:
       return state;

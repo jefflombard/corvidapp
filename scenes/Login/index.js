@@ -5,6 +5,7 @@ import {
 import { connect } from 'react-redux';
 
 import LogoContainer from './LogoContainer';
+import CorvidTextInput from './CorvidTextInput';
 
 const styles = StyleSheet.create({
   background: {
@@ -18,6 +19,10 @@ const styles = StyleSheet.create({
     width: 223,
     justifyContent: 'space-between',
   },
+  formContainer: {
+    width: 300,
+    marginTop: 10,
+  },
 });
 
 class LoginScene extends Component {
@@ -30,8 +35,67 @@ class LoginScene extends Component {
     );
   }
 
+  onEmailChange(text) {
+    const { dispatch } = this.props;
+    dispatch(
+      {
+        type: 'EMAIL_TEXT_CHANGED',
+        payload: text,
+      },
+    );
+  }
+
+  onPasswordChange(text) {
+    const { dispatch } = this.props;
+    dispatch(
+      {
+        type: 'PASSWORD_TEXT_CHANGED',
+        payload: text,
+      },
+    );
+  }
+
+  onConfirmPasswordChange(text) {
+    const { dispatch } = this.props;
+    dispatch(
+      {
+        type: 'CONFIRM_PASSWORD_TEXT_CHANGED',
+        payload: text,
+      },
+    );
+  }
+
   render() {
-    const { background, switcherContainer } = styles;
+    const { background, switcherContainer, formContainer } = styles;
+    const { auth } = this.props;
+    const { isSignUp } = auth;
+    let pwInputs;
+
+    if (isSignUp) {
+      pwInputs = (
+        <View>
+          <CorvidTextInput
+            placeholder="Password"
+            secureTextEntry
+            onChangeText={this.onPasswordChange.bind(this)}
+          />
+          <CorvidTextInput
+            placeholder="Confirm Password"
+            secureTextEntry
+            onChangeText={this.onConfirmPasswordChange.bind(this)}
+          />
+        </View>
+      );
+    } else {
+      pwInputs = (
+        <CorvidTextInput
+          placeholder="Password"
+          secureTextEntry
+          onChangeText={this.onPasswordChange.bind(this)}
+        />
+      );
+    }
+
     return (
       <ImageBackground
         style={background}
@@ -39,8 +103,12 @@ class LoginScene extends Component {
       >
         <LogoContainer />
         <View style={switcherContainer}>
-          <Button title="Sign In" color="#fff" onPress={this.onTogglePress.bind(this)}/>
-          <Button title="Sign Up" color="#fff" onPress={this.onTogglePress.bind(this)}/>
+          <Button title="Sign In" disabled={!isSignUp} color="#fff" onPress={this.onTogglePress.bind(this)} />
+          <Button title="Sign Up" disabled={isSignUp} color="#fff" onPress={this.onTogglePress.bind(this)} />
+        </View>
+        <View style={formContainer}>
+          <CorvidTextInput onChangeText={this.onEmailChange.bind(this)} placeholder="Email" />
+          {pwInputs}
         </View>
       </ImageBackground>
     );
