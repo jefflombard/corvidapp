@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import {
-  ImageBackground, StyleSheet, View, Button,
+  ImageBackground,
+  StyleSheet,
+  View,
+  Button,
+  Text,
 } from 'react-native';
 import { connect } from 'react-redux';
 
 import LogoContainer from './LogoContainer';
 import CorvidTextInput from './CorvidTextInput';
+import BrandButton from '../../components/BrandButton';
 
 const styles = StyleSheet.create({
   background: {
@@ -22,6 +27,12 @@ const styles = StyleSheet.create({
   formContainer: {
     width: 300,
     marginTop: 10,
+  },
+  signUpText: {
+    fontSize: 16,
+    color: '#fff',
+    marginTop: 25,
+    marginBottom: 25,
   },
 });
 
@@ -65,10 +76,24 @@ class LoginScene extends Component {
     );
   }
 
+  signIn() {
+    // Sign In With FireBase
+    const { dispatch } = this.props;
+    dispatch({ type: 'SIGNIN' });
+  }
+
+  signUp() {
+    // Sign Up with FireBase
+    const { dispatch } = this.props;
+    dispatch({ type: 'SIGNUP' });
+  }
+
   render() {
     const { background, switcherContainer, formContainer } = styles;
     const { auth } = this.props;
     const { isSignUp } = auth;
+    const signUpText = isSignUp ? ' sign up ' : ' sign in ';
+    const signUpAction = isSignUp ? this.signUp.bind(this) : this.signIn.bind(this);
     let pwInputs;
 
     if (isSignUp) {
@@ -110,6 +135,14 @@ class LoginScene extends Component {
           <CorvidTextInput onChangeText={this.onEmailChange.bind(this)} placeholder="Email" />
           {pwInputs}
         </View>
+        <BrandButton onPress={signUpAction}>
+          { signUpText }
+        </BrandButton>
+        <Text style={styles.signUpText}>
+          or
+          { signUpText }
+          with
+        </Text>
       </ImageBackground>
     );
   }
