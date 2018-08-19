@@ -39,45 +39,6 @@ const styles = StyleSheet.create({
 });
 
 class LoginScene extends Component {
-  onTogglePress() {
-    const { dispatch } = this.props;
-    dispatch(
-      {
-        type: 'TOGGLE_SIGN_UP',
-      },
-    );
-  }
-
-  onEmailChange(text) {
-    const { dispatch } = this.props;
-    dispatch(
-      {
-        type: 'EMAIL_TEXT_CHANGED',
-        payload: text,
-      },
-    );
-  }
-
-  onPasswordChange(text) {
-    const { dispatch } = this.props;
-    dispatch(
-      {
-        type: 'PASSWORD_TEXT_CHANGED',
-        payload: text,
-      },
-    );
-  }
-
-  onConfirmPasswordChange(text) {
-    const { dispatch } = this.props;
-    dispatch(
-      {
-        type: 'CONFIRM_PASSWORD_TEXT_CHANGED',
-        payload: text,
-      },
-    );
-  }
-
   signIn() {
     // Sign In With FireBase
     const { dispatch } = this.props;
@@ -104,12 +65,12 @@ class LoginScene extends Component {
           <CorvidTextInput
             placeholder="Password"
             secureTextEntry
-            onChangeText={this.onPasswordChange.bind(this)}
+            onChangeText={actions.onPasswordChange}
           />
           <CorvidTextInput
             placeholder="Confirm Password"
             secureTextEntry
-            onChangeText={this.onConfirmPasswordChange.bind(this)}
+            onChangeText={actions.onConfirmPasswordChange}
           />
         </View>
       );
@@ -118,7 +79,7 @@ class LoginScene extends Component {
         <CorvidTextInput
           placeholder="Password"
           secureTextEntry
-          onChangeText={this.onPasswordChange.bind(this)}
+          onChangeText={actions.onPasswordChange}
         />
       );
     }
@@ -134,7 +95,7 @@ class LoginScene extends Component {
           <Button title="Sign Up" disabled={isSignUp} color="#fff" onPress={actions.toggleSignUp} />
         </View>
         <View style={formContainer}>
-          <CorvidTextInput onChangeText={this.onEmailChange.bind(this)} placeholder="Email" />
+          <CorvidTextInput onChangeText={actions.onEmailChange} placeholder="Email" />
           {pwInputs}
         </View>
         <BrandButton onPress={signUpAction}>
