@@ -7,10 +7,12 @@ import {
   Text,
 } from 'react-native';
 import { connect } from 'react-redux';
-
+import { bindActionCreators } from 'redux';
 import LogoContainer from './LogoContainer';
+
 import CorvidTextInput from './CorvidTextInput';
 import BrandButton from '../../components/BrandButton';
+import * as actionCreators from '../../actionCreators';
 
 const styles = StyleSheet.create({
   background: {
@@ -90,7 +92,7 @@ class LoginScene extends Component {
 
   render() {
     const { background, switcherContainer, formContainer } = styles;
-    const { auth } = this.props;
+    const { auth, actions } = this.props;
     const { isSignUp } = auth;
     const signUpText = isSignUp ? ' sign up ' : ' sign in ';
     const signUpAction = isSignUp ? this.signUp.bind(this) : this.signIn.bind(this);
@@ -128,8 +130,8 @@ class LoginScene extends Component {
       >
         <LogoContainer />
         <View style={switcherContainer}>
-          <Button title="Sign In" disabled={!isSignUp} color="#fff" onPress={this.onTogglePress.bind(this)} />
-          <Button title="Sign Up" disabled={isSignUp} color="#fff" onPress={this.onTogglePress.bind(this)} />
+          <Button title="Sign In" disabled={!isSignUp} color="#fff" onPress={actions.toggleSignUp} />
+          <Button title="Sign Up" disabled={isSignUp} color="#fff" onPress={actions.toggleSignUp} />
         </View>
         <View style={formContainer}>
           <CorvidTextInput onChangeText={this.onEmailChange.bind(this)} placeholder="Email" />
@@ -149,5 +151,6 @@ class LoginScene extends Component {
 }
 
 const mapStateToProps = state => ({ auth: state.auth });
+const mapDispatchToProps = dispatch => ({ actions: bindActionCreators(actionCreators, dispatch) });
 
-export default connect(mapStateToProps)(LoginScene);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginScene);
