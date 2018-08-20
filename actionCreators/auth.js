@@ -35,6 +35,8 @@ const transformErrorMessage = (message) => {
       return 'Weak password, must be at least 8 characters long.';
     case 'The email address is already in use by another account.':
       return 'This email address is already in use, if you forgot your password, tap on forgot password.';
+    case 'The password is invalid or the user does not have a password.':
+      return 'The password is invalid or the user does not exist.';
     default:
       return message;
   }
@@ -67,7 +69,7 @@ export const signUp = () => (dispatch, getState) => {
     payload: true,
   });
 
-  firebase
+  return firebase
     .auth()
     .createUserAndRetrieveDataWithEmailAndPassword(email, password)
     .then((response) => {
@@ -92,6 +94,46 @@ export const signUp = () => (dispatch, getState) => {
     });
 };
 
-export const signIn = () => {
-
+export const signIn = () => (dispatch, getState) => {
+  const { email, password } = getState().auth;
+  // Check for email and password
+  if (!(email && password)) {
+    return dispatch({
+      type: 'ERROR',
+      payload: 'Please enter both an email and a password.',
+    });
+  }
+  // Clear errors
+  dispatch({
+    type: 'ERROR',
+    payload: '',
+  });
+  // Tell UI That we are Loading
+  dispatch({
+    type: 'LOADING',
+    payload: true,
+  });
+  return firebase
+    .auth()
+    .signInAndRetrieveDataWithEmailAndPassword(email, password)
+    .then((response) => {
+      dispatch({
+        type: 'USER_LOGGED_IN',
+        payload: response.user,
+      });
+      return dispatch({
+        type: 'LOADING',
+        payload: false,
+      });
+    })
+    .catch((error) => {
+      dispatch({
+        type: 'ERROR',
+        payload: transformErrorMessage(error.message),
+      });
+      return dispatch({
+        type: 'LOADING',
+        payload: false,
+      });
+    });
 };
