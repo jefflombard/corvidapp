@@ -36,27 +36,19 @@ const styles = StyleSheet.create({
     marginTop: 25,
     marginBottom: 25,
   },
+  errorMessage: {
+    color: '#FF2A66',
+    marginTop: 5,
+  },
 });
 
 class LoginScene extends Component {
-  signIn() {
-    // Sign In With FireBase
-    const { dispatch } = this.props;
-    dispatch({ type: 'SIGNIN' });
-  }
-
-  signUp() {
-    // Sign Up with FireBase
-    const { dispatch } = this.props;
-    dispatch({ type: 'SIGNUP' });
-  }
-
   render() {
     const { background, switcherContainer, formContainer } = styles;
-    const { auth, actions } = this.props;
+    const { auth, actions, ui } = this.props;
     const { isSignUp } = auth;
     const signUpText = isSignUp ? ' sign up ' : ' sign in ';
-    const signUpAction = isSignUp ? this.signUp.bind(this) : this.signIn.bind(this);
+    const signUpAction = isSignUp ? actions.signUp : actions.signIn;
     let pwInputs;
 
     if (isSignUp) {
@@ -98,6 +90,9 @@ class LoginScene extends Component {
           <CorvidTextInput onChangeText={actions.onEmailChange} placeholder="Email" />
           {pwInputs}
         </View>
+        <Text style={styles.errorMessage}>
+          {ui.error}
+        </Text>
         <BrandButton onPress={signUpAction}>
           { signUpText }
         </BrandButton>
@@ -111,7 +106,7 @@ class LoginScene extends Component {
   }
 }
 
-const mapStateToProps = state => ({ auth: state.auth });
+const mapStateToProps = state => ({ auth: state.auth, ui: state.ui });
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators(actionCreators, dispatch) });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginScene);
