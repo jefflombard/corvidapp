@@ -75,6 +75,10 @@ export const signUp = () => (dispatch, getState) => {
         type: 'USER_LOGGED_IN',
         payload: response.user,
       });
+      return dispatch({
+        type: 'LOADING',
+        payload: false,
+      });
     })
     .catch((error) => {
       dispatch({

@@ -33,6 +33,7 @@ const CorvidTextInput = (props) => {
         placeholderTextColor="#DBDBDB"
         secureTextEntry={secureTextEntry}
         onChangeText={onChangeText}
+        autoCapitalize="none"
       />
     </View>
   );

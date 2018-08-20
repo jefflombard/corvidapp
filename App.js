@@ -42,11 +42,11 @@ const renderActivityIndicator = (showActivityIndicator) => {
 };
 
 const App = (props) => {
-  const { ui } = props;
+  const { ui, auth } = props;
   return (
     <View style={{ flex: 1 }}>
       {renderActivityIndicator(ui.loading)}
-      {renderRouter(false)}
+      {renderRouter(auth.user)}
     </View>
   );
 };
