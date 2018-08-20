@@ -39,6 +39,7 @@ const styles = StyleSheet.create({
   errorMessage: {
     color: '#FF2A66',
     marginTop: 5,
+    textAlign: 'center',
   },
 });
 
