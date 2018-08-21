@@ -13,7 +13,6 @@ import LogoContainer from './LogoContainer';
 import CorvidTextInput from './CorvidTextInput';
 import BrandButton from '../../components/BrandButton';
 import * as actionCreators from '../../actionCreators';
-import FacebookLoginButton from './FacebookLoginButton';
 
 const styles = StyleSheet.create({
   background: {
@@ -52,7 +51,6 @@ const LoginScene = (props) => {
   // Conditional Rendering
   const signUpText = isSignUp ? ' sign up ' : ' sign in ';
   const signUpAction = isSignUp ? actions.signUp : actions.signIn;
-  const facebookAction = isSignUp ? actions.facebookSignUp : actions.facebookSignIn;
   let pwInputs;
 
   if (isSignUp) {
@@ -100,12 +98,6 @@ const LoginScene = (props) => {
       <BrandButton onPress={signUpAction}>
         { signUpText }
       </BrandButton>
-      <Text style={styles.signUpText}>
-        or
-        { signUpText }
-        with
-      </Text>
-      <FacebookLoginButton onPress={facebookAction}/>
     </ImageBackground>
   );
 };

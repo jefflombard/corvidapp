@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Scene, Router } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import { View, ActivityIndicator } from 'react-native';
+import { bindActionCreators } from 'redux';
 
 import LoginScene from './scenes/Login';
+import * as actionCreators from './actionCreators';
 
 const renderRouter = (showRouter) => {
   if (showRouter) {
@@ -41,16 +43,24 @@ const renderActivityIndicator = (showActivityIndicator) => {
   return <View />;
 };
 
-const App = (props) => {
-  const { ui, auth } = props;
-  return (
-    <View style={{ flex: 1 }}>
-      {renderActivityIndicator(ui.loading)}
-      {renderRouter(auth.user)}
-    </View>
-  );
-};
+class App extends Component {
+  componentDidMount() {
+    const { actions } = this.props;
+    actions.checkAuthPersistance();
+  }
+
+  render() {
+    const { ui, auth } = this.props;
+    return (
+      <View style={{ flex: 1 }}>
+        {renderActivityIndicator(ui.loading)}
+        {renderRouter(auth.user)}
+      </View>
+    );
+  }
+}
 
 const mapStateToProps = state => ({ auth: state.auth, ui: state.ui });
+const mapDispatchToProps = dispatch => ({ actions: bindActionCreators(actionCreators, dispatch) });
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

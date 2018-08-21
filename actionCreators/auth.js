@@ -139,43 +139,28 @@ export const signIn = () => (dispatch, getState) => {
     });
 };
 
-export const facebookSignUp = () => (dispatch, getState) => {
-  // Clear errors
-  dispatch({
-    type: 'ERROR',
-    payload: '',
-  });
-  // Tell UI That we are Loading
+export const checkAuthPersistance = () => (dispatch) => {
+  // Set LOADING
   dispatch({
     type: 'LOADING',
     payload: true,
   });
-  return firebase
-    .auth()
-    .createUserAndRetrieveDataWithEmailAndPassword(email, password)
-    .then((response) => {
+
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
       dispatch({
         type: 'USER_LOGGED_IN',
-        payload: response.user,
+        payload: user,
       });
-      return dispatch({
-        type: 'LOADING',
-        payload: false,
-      });
-    })
-    .catch((error) => {
       dispatch({
-        type: 'ERROR',
-        payload: transformErrorMessage(error.message),
-      });
-      return dispatch({
         type: 'LOADING',
         payload: false,
       });
-    });
-
-};
-
-export const facebookSignIn = () => (dispatch, getState) => {
-
+    } else {
+      dispatch({
+        type: 'LOADING',
+        payload: false,
+      });
+    }
+  });
 };
