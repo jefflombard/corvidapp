@@ -164,3 +164,28 @@ export const checkAuthPersistance = () => (dispatch) => {
     }
   });
 };
+
+export const forgotPassword = () => (dispatch, getState) => {
+  const { email } = getState().auth;
+  const actionCodeSettings = {
+    iOS: {
+      bundleId: 'com.getcorvid.corvid',
+    },
+  };
+
+  dispatch({
+    type: 'FORGOT_PASSWORD',
+    payload: true,
+  });
+  dispatch({
+    type: 'ERROR',
+    payload: 'Check your email for a reset link',
+  });
+  firebase.auth().sendPasswordResetEmail(email, actionCodeSettings)
+    .catch((error) => {
+      dispatch({
+        type: 'ERROR',
+        payload: transformErrorMessage(error.message),
+      });
+    });
+};

@@ -3,6 +3,7 @@ import {
   ImageBackground,
   StyleSheet,
   View,
+  TouchableOpacity,
   Button,
   Text,
 } from 'react-native';
@@ -46,7 +47,7 @@ const styles = StyleSheet.create({
 const LoginScene = (props) => {
   const { background, switcherContainer, formContainer } = styles;
   const { auth, actions, ui } = props;
-  const { isSignUp } = auth;
+  const { isSignUp, forgotPassword } = auth;
 
   // Conditional Rendering
   const signUpText = isSignUp ? ' sign up ' : ' sign in ';
@@ -71,7 +72,7 @@ const LoginScene = (props) => {
   } else {
     pwInputs = (
       <CorvidTextInput
-        placeholder="Password"
+        placeholder={forgotPassword ? 'New Password' : 'Password'}
         secureTextEntry
         onChangeText={actions.onPasswordChange}
       />
@@ -98,6 +99,13 @@ const LoginScene = (props) => {
       <BrandButton onPress={signUpAction}>
         { signUpText }
       </BrandButton>
+      {!isSignUp && (
+        <TouchableOpacity onPress={actions.forgotPassword}>
+          <Text style={{ marginTop: 10 }}>
+            Forgot Password?
+          </Text>
+        </TouchableOpacity>
+      )}
     </ImageBackground>
   );
 };

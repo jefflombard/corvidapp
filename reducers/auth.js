@@ -3,6 +3,7 @@ const initialState = {
   password: '',
   confirmPassword: '',
   email: '',
+  forgotPassword: false,
 };
 
 export default (state = initialState, action) => {
@@ -38,6 +39,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         passwordMatch: action.payload,
+      };
+    case 'FORGOT_PASSWORD':
+      return {
+        ...state,
+        forgotPassword: action.payload,
       };
     default:
       return state;
