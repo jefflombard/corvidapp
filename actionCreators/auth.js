@@ -69,6 +69,7 @@ export const signUp = () => (dispatch, getState) => {
     payload: true,
   });
 
+  // Sign In With Facebook
   return firebase
     .auth()
     .createUserAndRetrieveDataWithEmailAndPassword(email, password)
@@ -136,4 +137,45 @@ export const signIn = () => (dispatch, getState) => {
         payload: false,
       });
     });
+};
+
+export const facebookSignUp = () => (dispatch, getState) => {
+  // Clear errors
+  dispatch({
+    type: 'ERROR',
+    payload: '',
+  });
+  // Tell UI That we are Loading
+  dispatch({
+    type: 'LOADING',
+    payload: true,
+  });
+  return firebase
+    .auth()
+    .createUserAndRetrieveDataWithEmailAndPassword(email, password)
+    .then((response) => {
+      dispatch({
+        type: 'USER_LOGGED_IN',
+        payload: response.user,
+      });
+      return dispatch({
+        type: 'LOADING',
+        payload: false,
+      });
+    })
+    .catch((error) => {
+      dispatch({
+        type: 'ERROR',
+        payload: transformErrorMessage(error.message),
+      });
+      return dispatch({
+        type: 'LOADING',
+        payload: false,
+      });
+    });
+
+};
+
+export const facebookSignIn = () => (dispatch, getState) => {
+
 };

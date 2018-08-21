@@ -48,8 +48,11 @@ const LoginScene = (props) => {
   const { background, switcherContainer, formContainer } = styles;
   const { auth, actions, ui } = props;
   const { isSignUp } = auth;
+
+  // Conditional Rendering
   const signUpText = isSignUp ? ' sign up ' : ' sign in ';
   const signUpAction = isSignUp ? actions.signUp : actions.signIn;
+  const facebookAction = isSignUp ? actions.facebookSignUp : actions.facebookSignIn;
   let pwInputs;
 
   if (isSignUp) {
@@ -102,7 +105,7 @@ const LoginScene = (props) => {
         { signUpText }
         with
       </Text>
-      <FacebookLoginButton />
+      <FacebookLoginButton onPress={facebookAction}/>
     </ImageBackground>
   );
 };
