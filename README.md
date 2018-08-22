@@ -1,4 +1,14 @@
-# React Native Firebase Starter<a href="https://rnfirebase.io"><img align="left" src="https://camo.githubusercontent.com/dbea9e8e1413431453c9df6876dedf678c0f8a63/68747470733a2f2f692e696d6775722e636f6d2f65424e4a6c48642e706e67"></a>
+# Setup
+
+1. `git clone https://github.com/jefflombard/corvidapp.git`
+1. `cd corvidapp/`
+1. `yarn`
+1. `cd ios`
+1. `pod install`
+1. `cd ..`
+1. `yarn ios`
+
+# This Project was bootstraped with React Native Firebase Starter<a href="https://rnfirebase.io"><img align="left" src="https://camo.githubusercontent.com/dbea9e8e1413431453c9df6876dedf678c0f8a63/68747470733a2f2f692e696d6775722e636f6d2f65424e4a6c48642e706e67"></a>
 
 [![Backers on Open Collective](https://opencollective.com/react-native-firebase/backers/badge.svg)](#backers)
 [![Sponsors on Open Collective](https://opencollective.com/react-native-firebase/sponsors/badge.svg)](#sponsors)
