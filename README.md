@@ -8,6 +8,12 @@
 1. `cd ..`
 1. `yarn ios`
 
+## Troubleshooting
+
+If something goes wrong, check here: https://facebook.github.io/react-native/docs/troubleshooting.
+
+Unfortunately one time the only remedy for me was to delete xCode, the simulators, and the repo locally. Then reinstall from the beginning. :/ Open to better alternatives, but know that this is a measure of last resort.
+
 # This Project was bootstraped with React Native Firebase Starter<a href="https://rnfirebase.io"><img align="left" src="https://camo.githubusercontent.com/dbea9e8e1413431453c9df6876dedf678c0f8a63/68747470733a2f2f692e696d6775722e636f6d2f65424e4a6c48642e706e67"></a>
 
 [![Backers on Open Collective](https://opencollective.com/react-native-firebase/backers/badge.svg)](#backers)
@@ -50,7 +56,7 @@ A basic react native app with [`react-native-firebase`](https://github.com/inver
 - 3.2) **[iOS]** Place this file in the `ios/` directory of your project.
 - 3.3) **[Android]** Follow the `manually add firebase` to your app instructions [here](https://firebase.google.com/docs/android/setup#manually_add_firebase) to generate your `google-services.json` file if you haven't done so already - use the package name generated previously as your `Android package name`.
 - 3.4) **[Android]** Place this file in the `android/app/` directory of your project.
-  
+
 #### 4) Start your app
 
 - 4.1) Start the react native packager, run `yarn run start` or `npm start` from the root of your project.
@@ -58,7 +64,7 @@ A basic react native app with [`react-native-firebase`](https://github.com/inver
 - 4.3) **[Android]** If you haven't already got an android device attached/emulator running then you'll need to get one running (make sure the emulator is with Google Play / APIs). When ready run `npm run android` or `yarn run android` from the root of your project.
 
 If all has gone well you'll see an initial screen like the one below.
-  
+
 ## Screenshots
 
 ![preview](https://i.imgur.com/4lG4HuS.png)
