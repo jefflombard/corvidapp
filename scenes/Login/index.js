@@ -9,8 +9,8 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import LogoContainer from './LogoContainer';
 
+import LogoContainer from './LogoContainer';
 import CorvidTextInput from './CorvidTextInput';
 import BrandButton from '../../components/BrandButton';
 import * as actionCreators from '../../actionCreators';

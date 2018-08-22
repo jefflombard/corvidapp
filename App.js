@@ -5,6 +5,7 @@ import { View, ActivityIndicator } from 'react-native';
 import { bindActionCreators } from 'redux';
 
 import LoginScene from './scenes/Login';
+import PostcardScene from './scenes/Postcards';
 import * as actionCreators from './actionCreators';
 
 const renderRouter = (showRouter) => {
@@ -12,7 +13,7 @@ const renderRouter = (showRouter) => {
     return (
       <Router>
         <Scene key="root">
-          <Scene key="login" component={LoginScene} title="Login" />
+          <Scene key="Postcards" component={PostcardScene} title="Sent Postcards" />
         </Scene>
       </Router>
     );
