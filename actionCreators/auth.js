@@ -1,10 +1,15 @@
 import firebase from 'react-native-firebase';
 
-export const toggleSignUp = () => (
-  {
+export const toggleSignUp = () => (dispatch) => {
+  dispatch({
+    type: 'ERROR',
+    payload: '',
+  });
+
+  return dispatch({
     type: 'TOGGLE_SIGN_UP',
-  }
-);
+  });
+};
 
 export const onConfirmPasswordChange = text => (
   {
