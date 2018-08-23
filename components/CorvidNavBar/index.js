@@ -27,6 +27,11 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 17,
     color: '#fff',
+    position: 'absolute',
+    bottom: 10,
+    width: '50%',
+    textAlign: 'center',
+    left: '25%',
   },
   credits: {
     marginRight: 10,
@@ -52,7 +57,7 @@ const CorvidNavBar = props => (
     <Text style={styles.title}>{props.title}</Text>
     <TouchableOpacity style={styles.credits}>
       <Image source={require('./envelope.png')} />
-      <Text style={styles.creditText}>21</Text>
+      <Text style={styles.creditText}>1</Text>
     </TouchableOpacity>
   </ImageBackground>
 );
