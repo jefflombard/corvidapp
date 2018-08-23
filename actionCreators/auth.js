@@ -1,4 +1,5 @@
 import firebase from 'react-native-firebase';
+import { AlertIOS } from 'react-native';
 
 export const toggleSignUp = () => (dispatch) => {
   dispatch({
@@ -210,4 +211,36 @@ export const logout = () => (dispatch, getState) => {
         payload: false,
       });
     });
+};
+
+export const changePassword = () => (dispatch, getState) => {
+  AlertIOS.prompt(
+    'Please enter a new password.',
+    null,
+    (password) => {
+      dispatch({
+        type: 'LOADING',
+        payload: true,
+      });
+      getState().auth.user.updatePassword(password)
+        .then(() => {
+          dispatch({
+            type: 'LOADING',
+            payload: false
+          });
+          AlertIOS.alert('Password Successully Updated');
+        })
+        .catch((err) => {
+          dispatch({
+            type: 'LOADING',
+            payload: false
+          });
+          if (err.code ==="auth/weak-password"){
+            AlertIOS.alert("Weak password try again.");
+          } else {
+            AlertIOS.alert("You haven't logged in for a while, please log out and try again.");
+          }
+        });
+    }
+  );
 };
