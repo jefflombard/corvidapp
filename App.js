@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux';
 
 import LoginScene from './scenes/Login';
 import PostcardScene from './scenes/Postcards';
+import CorvidNavBar from './components/CorvidNavBar';
 import * as actionCreators from './actionCreators';
 
 const renderRouter = (showRouter) => {
@@ -13,7 +14,12 @@ const renderRouter = (showRouter) => {
     return (
       <Router>
         <Scene key="root">
-          <Scene key="Postcards" component={PostcardScene} title="Sent Postcards" />
+          <Scene
+            key="Postcards"
+            component={PostcardScene}
+            title="Sent Postcards"
+            navBar={CorvidNavBar}
+          />
         </Scene>
       </Router>
     );
