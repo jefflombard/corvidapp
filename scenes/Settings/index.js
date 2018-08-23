@@ -1,5 +1,7 @@
 import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { connect } from 'react-redux';
+import { View, StyleSheet, AlertIOS } from 'react-native';
+import { bindActionCreators } from 'redux';
 
 import BrandButton from '../../components/BrandButton';
 import BaseButton from '../../components/BaseButton';
@@ -17,27 +19,48 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SettingsScene = props => (
-  <View style={{ paddingTop: 64, flex: 1, backgoundColor: '#000' }}>
-    <View style={{ padding: 15, backgoundColor: '#000' }}>
-      <BaseButton>
-        Sign Out of Corvid
-      </BaseButton>
-    </View>
+const deleteAlert = () => {
+  AlertIOS.alert(
+    'Please email accounts@getcorvid.com with a request to delete your account.',
+  );
+};
 
-    <Text>
-      Sign Out
-    </Text>
-    <Text>
-      Delete Account
-    </Text>
-    <Text>
-      Back
-    </Text>
-    <View style={styles.buttonContainer}>
-      <BrandButton onPress={actionCreators.goBack}>
-        Back
-      </BrandButton>
+const SettingsScene = (props) => {
+  const { actions } = props;
+  return (
+    <View style={{ paddingTop: 64, flex: 1, backgroundColor: '#F7FAFF' }}>
+      <View style={{ padding: 15 }}>
+        <View style={{marginTop: 30}}>
+          <BaseButton onPress={actions.updateInfo}>
+            Update Sender Info
+          </BaseButton>
+        </View>
+        <View style={{marginTop: 30}}>
+          <BaseButton onPress={actions.changePassword}>
+            Change Password
+          </BaseButton>
+        </View>
+        <View style={{marginTop: 30}}>
+          <BaseButton onPress={deleteAlert}>
+            Delete Account
+          </BaseButton>
+        </View>
+        <View style={{marginTop: 30}}>
+          <BaseButton onPress={actions.logout}>
+            Sign Out
+          </BaseButton>
+        </View>
+      </View>
+
+      <View style={styles.buttonContainer}>
+        <BrandButton onPress={actions.goBack}>
+          Back
+        </BrandButton>
+      </View>
     </View>
-  </View>
-);
+  )};
+
+const mapStateToProps = state => ({ ui: state.ui });
+const mapDispatchToProps = dispatch => ({ actions: bindActionCreators(actionCreators, dispatch) });
+
+export default connect(mapStateToProps, mapDispatchToProps)(SettingsScene);

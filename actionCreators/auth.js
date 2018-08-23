@@ -194,3 +194,20 @@ export const forgotPassword = () => (dispatch, getState) => {
       });
     });
 };
+
+export const logout = () => (dispatch, getState) => {
+  dispatch({
+    type: 'LOADING',
+    payload: true,
+  });
+  firebase.auth().signOut()
+    .then(() => {
+      dispatch({
+        type: 'SIGNOUT',
+      });
+      dispatch({
+        type: 'LOADING',
+        payload: false,
+      });
+    });
+};

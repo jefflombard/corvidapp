@@ -45,6 +45,11 @@ export default (state = initialState, action) => {
         ...state,
         forgotPassword: action.payload,
       };
+    case 'SIGNOUT':
+      return {
+        ...state,
+        user: false,
+      };
     default:
       return state;
   }

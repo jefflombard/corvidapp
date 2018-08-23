@@ -16,13 +16,23 @@ const styles = StyleSheet.create({
     height: 44,
     width: '100%',
   },
+  button: {
+    width: '100%',
+    height: 45,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+  },
 });
 
 const BaseButton = (props) => {
   const { onPress, children, disabled } = props;
   return (
     <TouchableOpacity
-      style={{ width: '100%', height: 45 }}
+      style={styles.button}
       onPress={onPress}
       disabled={disabled}
     >
