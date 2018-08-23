@@ -13,7 +13,6 @@ import { bindActionCreators } from 'redux';
 
 import * as actionCreators from '../../actionCreators';
 
-
 const styles = StyleSheet.create({
   container: {
     height: 64,
@@ -45,22 +44,33 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
 });
+const gear = require('./gear.png');
+const envelope = require('./envelope.png');
+const backIcon = require('./backIcon.png');
 
-const CorvidNavBar = props => (
-  <ImageBackground
-    style={styles.container}
-    source={require('./navbg.png')} // eslint-disable-line global-require
-  >
-    <TouchableOpacity style={styles.settings}>
-      <Image source={require('./gear.png')} />
-    </TouchableOpacity>
-    <Text style={styles.title}>{props.title}</Text>
-    <TouchableOpacity style={styles.credits}>
-      <Image source={require('./envelope.png')} />
-      <Text style={styles.creditText}>1</Text>
-    </TouchableOpacity>
-  </ImageBackground>
-);
+const CorvidNavBar = (props) => {
+  const { title, ui } = props;
+
+  return (
+    <ImageBackground
+      style={styles.container}
+      source={require('./navbg.png')} // eslint-disable-line global-require
+    >
+      <TouchableOpacity style={styles.settings} onPress={actionCreators.openSettings}>
+        <Image source={gear} />
+      </TouchableOpacity>
+      <Text style={styles.title}>
+        {title}
+      </Text>
+      <TouchableOpacity style={styles.credits}>
+        <Image source={envelope} />
+        <Text style={styles.creditText}>
+          10
+        </Text>
+      </TouchableOpacity>
+    </ImageBackground>
+  );
+};
 
 const mapStateToProps = state => ({ ui: state.ui });
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators(actionCreators, dispatch) });

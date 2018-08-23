@@ -9,7 +9,7 @@ import { bindActionCreators } from 'redux';
 import * as actionCreators from '../../actionCreators';
 
 const PostcardScene = () => (
-  <View>
+  <View style={{ paddingTop: 64 }}>
     <Text>
       Login
     </Text>
