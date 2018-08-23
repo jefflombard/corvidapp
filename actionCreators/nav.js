@@ -1,13 +1,13 @@
 import { Actions } from 'react-native-router-flux';
 
-export const openSettings = () => {
+export const openSettings = () => () => {
   Actions.settings();
 };
 
-export const updateInfo = () => {
+export const updateInfo = () => () => {
   Actions.updateInfo();
 };
 
-export const goBack = () => {
-  Actions.pop();
+export const goHome = () => () => {
+  Actions.postcards();
 };

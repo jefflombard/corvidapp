@@ -53,7 +53,7 @@ const SettingsScene = (props) => {
       </View>
 
       <View style={styles.buttonContainer}>
-        <BrandButton onPress={actions.goBack}>
+        <BrandButton onPress={actions.goHome}>
           Back
         </BrandButton>
       </View>

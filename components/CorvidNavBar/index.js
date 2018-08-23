@@ -49,14 +49,14 @@ const envelope = require('./envelope.png');
 const backIcon = require('./backIcon.png');
 
 const CorvidNavBar = (props) => {
-  const { title, ui } = props;
+  const { title, ui, actions } = props;
 
   return (
     <ImageBackground
       style={styles.container}
       source={require('./navbg.png')} // eslint-disable-line global-require
     >
-      <TouchableOpacity style={styles.settings} onPress={actionCreators.openSettings}>
+      <TouchableOpacity style={styles.settings} onPress={actions.openSettings}>
         <Image source={gear} />
       </TouchableOpacity>
       <Text style={styles.title}>
