@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Scene, Router } from 'react-native-router-flux';
 import { connect } from 'react-redux';
-import { View, ActivityIndicator } from 'react-native';
+import { View, ActivityIndicator, StatusBar } from 'react-native';
 import { bindActionCreators } from 'redux';
 
 import LoginScene from './scenes/Login';
@@ -54,6 +54,7 @@ class App extends Component {
     const { ui, auth } = this.props;
     return (
       <View style={{ flex: 1 }}>
+        <StatusBar barStyle="light-content" />
         {renderActivityIndicator(ui.loading)}
         {renderRouter(auth.user)}
       </View>
