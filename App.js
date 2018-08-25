@@ -9,6 +9,7 @@ import PostcardScene from './scenes/Postcards';
 import SettingsScene from './scenes/Settings';
 import CorvidNavBar from './components/CorvidNavBar';
 import UpdateInfoScene from './scenes/UpdateInfo';
+import PreviewScene from './scenes/Preview';
 import * as actionCreators from './actionCreators';
 
 const renderRouter = (showRouter) => {
@@ -32,6 +33,12 @@ const renderRouter = (showRouter) => {
             key="updateInfo"
             component={UpdateInfoScene}
             title="Update Info"
+            navBar={CorvidNavBar}
+          />
+          <Scene
+            key="preview"
+            component={PreviewScene}
+            title="Preview"
             navBar={CorvidNavBar}
           />
         </Scene>

@@ -11,3 +11,7 @@ export const updateInfo = () => () => {
 export const goHome = () => () => {
   Actions.postcards();
 };
+
+export const newPostcard = () => () => {
+  Actions.preview();
+};
