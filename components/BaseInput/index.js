@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
   },
   inputStyle: {
     fontSize: 17,
-  }
+  },
 });
 
 const BaseInput = (props) => {
