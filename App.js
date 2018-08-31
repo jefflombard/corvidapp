@@ -12,6 +12,9 @@ import UpdateInfoScene from './scenes/UpdateInfo';
 import PreviewScene from './scenes/Preview';
 import * as actionCreators from './actionCreators';
 
+// For Testing Only
+import renderRouterTest from './utilities/routerTest.js';
+
 const renderRouter = (showRouter) => {
   if (showRouter) {
     return (
@@ -83,11 +86,13 @@ class App extends Component {
       <View style={{ flex: 1 }}>
         <StatusBar barStyle="light-content" />
         {renderActivityIndicator(ui.loading)}
-        {renderRouter(auth.user)}
+        {renderRouterTest(auth.user)}
       </View>
     );
   }
 }
+// {renderRouter(auth.user)} for Testing
+
 
 const mapStateToProps = state => ({ auth: state.auth, ui: state.ui });
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators(actionCreators, dispatch) });
