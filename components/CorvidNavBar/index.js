@@ -4,10 +4,8 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  View
 } from 'react-native';
-import React, { Component } from 'react';
-import { Actions } from 'react-native-router-flux';
+import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -46,10 +44,9 @@ const styles = StyleSheet.create({
 });
 const gear = require('./gear.png');
 const envelope = require('./envelope.png');
-const backIcon = require('./backIcon.png');
 
 const CorvidNavBar = (props) => {
-  const { title, ui, actions } = props;
+  const { title, actions } = props;
 
   return (
     <ImageBackground

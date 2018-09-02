@@ -30,22 +30,22 @@ const SettingsScene = (props) => {
   return (
     <View style={{ paddingTop: 64, flex: 1, backgroundColor: '#F7FAFF' }}>
       <View style={{ padding: 15 }}>
-        <View style={{marginTop: 30}}>
+        <View style={{ marginTop: 30 }}>
           <BaseButton onPress={actions.updateInfo}>
             Update Sender Info
           </BaseButton>
         </View>
-        <View style={{marginTop: 30}}>
+        <View style={{ marginTop: 30 }}>
           <BaseButton onPress={actions.changePassword}>
             Change Password
           </BaseButton>
         </View>
-        <View style={{marginTop: 30}}>
+        <View style={{ marginTop: 30 }}>
           <BaseButton onPress={deleteAlert}>
             Delete Account
           </BaseButton>
         </View>
-        <View style={{marginTop: 30}}>
+        <View style={{ marginTop: 30 }}>
           <BaseButton onPress={actions.logout}>
             Sign Out
           </BaseButton>
@@ -58,7 +58,8 @@ const SettingsScene = (props) => {
         </BrandButton>
       </View>
     </View>
-  )};
+  );
+};
 
 const mapStateToProps = state => ({ ui: state.ui });
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators(actionCreators, dispatch) });
