@@ -11,6 +11,7 @@ import { bindActionCreators } from 'redux';
 import * as actionCreators from '../../actionCreators';
 import BaseInput from '../../components/BaseInput';
 import BrandButton from '../../components/BrandButton';
+import ZipInput from '../../components/ZipInput';
 
 const styles = StyleSheet.create({
   messageTitle: {
@@ -70,7 +71,7 @@ const AddressScene = (props) => {
           label="State"
           placeholder="Enter your State"
         />
-        <BaseInput
+        <ZipInput
           label="ZIP"
           placeholder="Enter your ZIP here"
         />

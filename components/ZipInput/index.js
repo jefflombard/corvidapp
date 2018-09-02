@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const BaseInput = (props) => {
+const ZipInput = (props) => {
   const { onChangeText } = props;
   const { labelStyle, inputStyle, containerStyle } = styles;
 
@@ -35,9 +35,11 @@ const BaseInput = (props) => {
         placeholder="Enter your ZIP here"
         style={inputStyle}
         onChangeText={onChangeText}
+        keyboardType="numeric"
+        maxLength={5}
       />
     </View>
   );
 };
 
-export default BaseInput;
+export default ZipInput;
