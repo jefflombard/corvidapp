@@ -3,12 +3,14 @@ import {
   View,
   Text,
   StyleSheet,
+  ScrollView,
 } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import * as actionCreators from '../../actionCreators';
 import BaseInput from '../../components/BaseInput';
+import BrandButton from '../../components/BrandButton';
 
 const styles = StyleSheet.create({
   messageTitle: {
@@ -18,11 +20,13 @@ const styles = StyleSheet.create({
   },
   text: {
     marginTop: 15,
-    marginBottom: 0,
+    marginBottom: 20,
+    fontSize: 17,
   },
   container: {
     marginLeft: 15,
     marginRight: 15,
+    marginTop: 25,
   },
 });
 
@@ -32,12 +36,48 @@ const AddressScene = (props) => {
     messageTitle,
   } = props;
   return (
-    <View style={{ paddingTop: 64,
-                   flex: 1,
-                   flexDirection: 'column',
-                   backgroundColor: '#F7FAFF',
-                }}>
-      <BaseInput label="Example Label" placeholder="Example Placeholder"/>
+    <View style={{
+      paddingTop: 64,
+      flex: 1,
+      flexDirection: 'column',
+      backgroundColor: '#F7FAFF',
+    }}
+    >
+      <ScrollView style={styles.container}>
+        <Text style={styles.messageTitle}>
+          {messageTitle}
+        </Text>
+        <Text style={styles.text}>
+          {message}
+        </Text>
+        <BaseInput
+          label="Name"
+          placeholder="Enter your name here"
+        />
+        <BaseInput
+          label="Address"
+          placeholder="Enter your address"
+        />
+        <BaseInput
+          label="Second Address"
+          placeholder="Enter your Second Address (optional)"
+        />
+        <BaseInput
+          label="City"
+          placeholder="Enter your City"
+        />
+        <BaseInput
+          label="State"
+          placeholder="Enter your State"
+        />
+        <BaseInput
+          label="ZIP"
+          placeholder="Enter your ZIP here"
+        />
+      </ScrollView>
+      <BrandButton style={{marginBottom: 20}}>
+        Save
+      </BrandButton>
     </View>
   );
 };

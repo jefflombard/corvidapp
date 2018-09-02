@@ -91,7 +91,8 @@ class App extends Component {
     );
   }
 }
-// {renderRouter(auth.user)} for Testing
+// {renderRouter(auth.user)} for Prod
+// {renderRouterTest(auth.user)} for Development
 
 
 const mapStateToProps = state => ({ auth: state.auth, ui: state.ui });

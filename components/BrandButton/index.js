@@ -21,9 +21,9 @@ const styles = StyleSheet.create({
 });
 
 const BrandButton = (props) => {
-  const { onPress, children, disabled } = props;
+  const { onPress, children, disabled, style } = props;
   return (
-    <TouchableOpacity style={{width: "100%"}} onPress={onPress} disabled={disabled}>
+    <TouchableOpacity style={[{width: "100%"},style]} onPress={onPress} disabled={disabled}>
       <View style={{width: "100%" }}>
         <ImageBackground
           style={styles.buttonContainer}

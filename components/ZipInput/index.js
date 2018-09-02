@@ -23,16 +23,16 @@ const styles = StyleSheet.create({
 });
 
 const BaseInput = (props) => {
-  const { label, placeholder, onChangeText } = props;
+  const { onChangeText } = props;
   const { labelStyle, inputStyle, containerStyle } = styles;
 
   return (
     <View style={containerStyle}>
       <Text style={labelStyle}>
-        {label}
+        ZIP Code
       </Text>
       <TextInput
-        placeholder={placeholder}
+        placeholder="Enter your ZIP here"
         style={inputStyle}
         onChangeText={onChangeText}
       />
