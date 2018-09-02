@@ -3,7 +3,7 @@ import { Scene, Router } from 'react-native-router-flux';
 import { View, ActivityIndicator, StatusBar } from 'react-native';
 
 import CorvidNavBar from '../components/CorvidNavBar';
-import AddressScene from '../scenes/Address/variants/setFromAddress';
+import AddressScene from '../scenes/FromAddress';
 
 const renderRouterTest = (showRouter) => {
   return (

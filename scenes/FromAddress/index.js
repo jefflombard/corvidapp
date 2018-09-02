@@ -32,10 +32,6 @@ const styles = StyleSheet.create({
 });
 
 const AddressScene = (props) => {
-  const {
-    message,
-    messageTitle,
-  } = props;
   return (
     <View style={{
       paddingTop: 64,
@@ -46,10 +42,10 @@ const AddressScene = (props) => {
     >
       <ScrollView style={styles.container}>
         <Text style={styles.messageTitle}>
-          {messageTitle}
+          Set your address
         </Text>
         <Text style={styles.text}>
-          {message}
+          We need a from address so your friends can write you back!
         </Text>
         <BaseInput
           label="Name"
