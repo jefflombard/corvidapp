@@ -3,15 +3,14 @@ import { Scene, Router } from 'react-native-router-flux';
 import { View, ActivityIndicator, StatusBar } from 'react-native';
 
 import CorvidNavBar from '../components/CorvidNavBar';
-import AddressScene from '../scenes/FromAddress';
 
-const renderRouterTest = (showRouter) => {
+const renderRouterTest = (outputComponent) => {
   return (
     <Router>
       <Scene key="root">
         <Scene
           key="postcards"
-          component={AddressScene}
+          component={outputComponent}
           title="Address"
           navBar={CorvidNavBar}
         />

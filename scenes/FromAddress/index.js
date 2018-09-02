@@ -42,7 +42,7 @@ const AddressScene = (props) => {
     >
       <ScrollView style={styles.container}>
         <Text style={styles.messageTitle}>
-          Set your address
+          Set your sender information
         </Text>
         <Text style={styles.text}>
           We need a from address so your friends can write you back!

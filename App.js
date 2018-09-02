@@ -8,8 +8,8 @@ import LoginScene from './scenes/Login';
 import PostcardScene from './scenes/Postcards';
 import SettingsScene from './scenes/Settings';
 import CorvidNavBar from './components/CorvidNavBar';
-import UpdateInfoScene from './scenes/UpdateInfo';
 import PreviewScene from './scenes/Preview';
+import FromAddressScene from './scenes/FromAddress';
 import * as actionCreators from './actionCreators';
 
 // For Testing Only
@@ -34,7 +34,7 @@ const renderRouter = (showRouter) => {
           />
           <Scene
             key="updateInfo"
-            component={UpdateInfoScene}
+            component={FromAddressScene}
             title="Update Info"
             navBar={CorvidNavBar}
           />
@@ -86,7 +86,7 @@ class App extends Component {
       <View style={{ flex: 1 }}>
         <StatusBar barStyle="light-content" />
         {renderActivityIndicator(ui.loading)}
-        {renderRouterTest(auth.user)}
+        {renderRouter(auth.user)}
       </View>
     );
   }
