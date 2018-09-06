@@ -14,8 +14,8 @@ const styles = StyleSheet.create({
     bottom: 0,
     paddingBottom: 25,
     alignItems: 'center',
-    justifyContent: 'center',
-    width: '100%',
+    width: '90%',
+    marginLeft: '5%',
   },
 });
 
@@ -29,7 +29,7 @@ const SettingsScene = (props) => {
   const { actions } = props;
   return (
     <View style={{ paddingTop: 64, flex: 1, backgroundColor: '#F7FAFF' }}>
-      <View style={{ padding: 15 }}>
+      <View style={{ padding: 0 }}>
         <View style={{ marginTop: 30 }}>
           <BaseButton onPress={actions.updateInfo}>
             Update Sender Info

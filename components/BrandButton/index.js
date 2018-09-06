@@ -12,7 +12,6 @@ const buttonbg = require('./buttonbg.png');
 const styles = StyleSheet.create({
   buttonContainer: {
     width: '100%',
-    maxWidth: 345,
     backgroundColor: '#990099',
     alignItems: 'center',
     paddingTop: 12,

@@ -25,8 +25,9 @@ const styles = StyleSheet.create({
     fontSize: 17,
   },
   container: {
-    marginLeft: 15,
-    marginRight: 15,
+    width: '90%',
+    marginLeft: '5%',
+    marginRight: '5%',
     marginTop: 25,
   },
 });
@@ -80,7 +81,7 @@ const AddressScene = (props) => {
         />
       </ScrollView>
       <BrandButton
-        style={{ marginBottom: 20 }}
+        style={[{ marginBottom: 25, marginTop: 10 }, styles.container]}
         onPress={actions.saveFromAddress}
       >
         Save
