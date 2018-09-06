@@ -28,7 +28,9 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   formContainer: {
-    width: 300,
+    width: '90%',
+    marginLeft: '5%',
+    marginRight: '5%',
     marginTop: 10,
   },
   signUpText: {
@@ -41,6 +43,7 @@ const styles = StyleSheet.create({
     color: '#FF2A66',
     marginTop: 5,
     textAlign: 'center',
+    marginBottom: 5,
   },
 });
 
@@ -92,13 +95,13 @@ const LoginScene = (props) => {
       <View style={formContainer}>
         <CorvidTextInput onChangeText={actions.onEmailChange} placeholder="Email" />
         {pwInputs}
+        <Text style={styles.errorMessage}>
+          {ui.error}
+        </Text>
+        <BrandButton onPress={signUpAction}>
+          { signUpText }
+        </BrandButton>
       </View>
-      <Text style={styles.errorMessage}>
-        {ui.error}
-      </Text>
-      <BrandButton onPress={signUpAction}>
-        { signUpText }
-      </BrandButton>
       {!isSignUp && (
         <TouchableOpacity onPress={actions.forgotPassword}>
           <Text style={{ marginTop: 10 }}>
