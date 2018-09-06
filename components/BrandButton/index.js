@@ -11,12 +11,17 @@ const buttonbg = require('./buttonbg.png');
 
 const styles = StyleSheet.create({
   buttonContainer: {
-    marginTop: 25,
-    paddingBottom: 4,
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: 44,
     width: '100%',
+    maxWidth: 345,
+    backgroundColor: '#990099',
+    alignItems: 'center',
+    paddingTop: 12,
+    paddingBottom: 12,
+    justifyContent: 'center',
+    height: 45,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
   },
 });
 
@@ -29,15 +34,10 @@ const BrandButton = (props) => {
   } = props;
   return (
     <TouchableOpacity style={[{ width: '100%' }, style]} onPress={onPress} disabled={disabled}>
-      <View style={{ width: '100%' }}>
-        <ImageBackground
-          style={styles.buttonContainer}
-          source={buttonbg}
-        >
-          <Text style={{ fontSize: 15, color: '#FFF' }}>
-            {children.toUpperCase()}
-          </Text>
-        </ImageBackground>
+      <View style={styles.buttonContainer}>
+        <Text style={{ fontSize: 15, color: '#FFF' }}>
+          {children.toUpperCase()}
+        </Text>
       </View>
     </TouchableOpacity>
   );
