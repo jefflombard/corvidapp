@@ -15,3 +15,7 @@ export const goHome = () => () => {
 export const newPostcard = () => () => {
   Actions.newPostcard();
 };
+
+export const goBack = () => () => {
+  Actions.pop();
+};

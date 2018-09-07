@@ -58,6 +58,12 @@ const SettingsScene = (props) => {
       </View>
 
       <View style={styles.buttonContainer}>
+        <BaseButton
+          onPress={actions.goBack}
+          style={{ marginBottom: 20, marginTop: 10 }}
+        >
+          Cancel
+        </BaseButton>
         <BrandButton onPress={actions.goHome}>
           Back
         </BrandButton>

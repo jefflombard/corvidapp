@@ -58,63 +58,66 @@ const styles = StyleSheet.create({
   },
 });
 
-const NewPostcardScene = () => (
-  <View style={{ paddingTop: 64, flex: 1, backgroundColor: '#F7FAFF' }}>
-    <ScrollView style={styles.contentContainer}>
-      <View>
-        <Text style={styles.sectionText}>
-          PHOTO
-        </Text>
-        <TouchableOpacity style={styles.placeholderContainer}>
-          <Image
-            source={placeholderImage}
-            style={styles.placeholder}
-          />
-        </TouchableOpacity>
-      </View>
-      <View>
-        <Text style={styles.sectionText}>
-          SEND TO
-        </Text>
-        <TouchableOpacity
-          style={[
-            styles.placeholderContainer,
-            styles.textContainer,
-            { height: 45 }]
-          }
-        >
-          <Text style={{ fontSize: 17 }}>
-            Set Send To Address
+const NewPostcardScene = (props) => {
+  const { actions } = props;
+  return (
+    <View style={{ paddingTop: 64, flex: 1, backgroundColor: '#F7FAFF' }}>
+      <ScrollView style={styles.contentContainer}>
+        <View>
+          <Text style={styles.sectionText}>
+            PHOTO
           </Text>
-        </TouchableOpacity>
-      </View>
-      <View>
-        <Text style={styles.sectionText}>
-          MESSAGE
-        </Text>
-        <TouchableOpacity
-          style={[
-            styles.placeholderContainer,
-            styles.textContainer,
-            { height: 45 }]
-          }
-        >
-          <Text style={{ fontSize: 17 }}>
-            Write a message...
+          <TouchableOpacity style={styles.placeholderContainer}>
+            <Image
+              source={placeholderImage}
+              style={styles.placeholder}
+            />
+          </TouchableOpacity>
+        </View>
+        <View>
+          <Text style={styles.sectionText}>
+            SEND TO
           </Text>
-        </TouchableOpacity>
+          <TouchableOpacity
+            style={[
+              styles.placeholderContainer,
+              styles.textContainer,
+              { height: 45 }]
+            }
+          >
+            <Text style={{ fontSize: 17 }}>
+              Set Send To Address
+            </Text>
+          </TouchableOpacity>
+        </View>
+        <View>
+          <Text style={styles.sectionText}>
+            MESSAGE
+          </Text>
+          <TouchableOpacity
+            style={[
+              styles.placeholderContainer,
+              styles.textContainer,
+              { height: 45 }]
+            }
+          >
+            <Text style={{ fontSize: 17 }}>
+              Write a message...
+            </Text>
+          </TouchableOpacity>
+        </View>
+      </ScrollView>
+      <View style={styles.buttonContainer}>
+        <BaseButton onPress={actions.goBack}>
+          Cancel
+        </BaseButton>
+        <BrandButton style={{ marginTop: 15 }}>
+          Send
+        </BrandButton>
       </View>
-    </ScrollView>
-    <View style={styles.buttonContainer}>
-      <BaseButton>
-        Cancel
-      </BaseButton>
-      <BrandButton style={{ marginTop: 15 }}>
-        Send
-      </BrandButton>
     </View>
-  </View>
-);
+  );
+};
 
 const mapStateToProps = state => ({ ui: state.ui });
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators(actionCreators, dispatch) });

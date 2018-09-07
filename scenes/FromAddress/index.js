@@ -11,6 +11,7 @@ import { bindActionCreators } from 'redux';
 import * as actionCreators from '../../actionCreators';
 import BaseInput from '../../components/BaseInput';
 import BrandButton from '../../components/BrandButton';
+import BaseButton from '../../components/BaseButton';
 import ZipInput from '../../components/ZipInput';
 
 const styles = StyleSheet.create({
@@ -80,6 +81,20 @@ const AddressScene = (props) => {
           onChangeText={actions.fromUpdateZip}
         />
       </ScrollView>
+      <View style={{
+        width: '90%',
+        marginLeft: '5%',
+        marginRight: '5%',
+        marginTop: 10,
+      }}
+      >
+        <BaseButton
+          onPress={actions.goBack}
+          style={[styles.container]}
+        >
+          Cancel
+        </BaseButton>
+      </View>
       <BrandButton
         style={[{ marginBottom: 30, marginTop: 10 }, styles.container]}
         onPress={actions.saveFromAddress}
