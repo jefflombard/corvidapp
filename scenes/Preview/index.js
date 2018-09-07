@@ -15,30 +15,22 @@ const styles = StyleSheet.create({
   buttonContainer: {
     position: 'absolute',
     bottom: 0,
-    paddingBottom: 25,
+    paddingBottom: 30,
     alignItems: 'center',
     justifyContent: 'center',
-    width: '100%',
+    width: '90%',
+    marginLeft: '5%',
+    marginRight: '5%',
   },
 });
 
 const PreviewScene = () => (
   <View style={{ paddingTop: 64, flex: 1, backgroundColor: '#F7FAFF' }}>
-    <Text>
-      Preview
-    </Text>
-    <View style={{ width: 310 }}>
-      <BaseButton>
-        Placeholder
-      </BaseButton>
-    </View>
     <View style={styles.buttonContainer}>
-      <View style={{ width: 310 }}>
-        <BaseButton>
-          Back to All Postcards
-        </BaseButton>
-      </View>
-      <BrandButton>
+      <BaseButton>
+        Cancel
+      </BaseButton>
+      <BrandButton style={{ marginTop: 15 }}>
         Send
       </BrandButton>
     </View>

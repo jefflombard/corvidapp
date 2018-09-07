@@ -81,7 +81,7 @@ const AddressScene = (props) => {
         />
       </ScrollView>
       <BrandButton
-        style={[{ marginBottom: 25, marginTop: 10 }, styles.container]}
+        style={[{ marginBottom: 30, marginTop: 10 }, styles.container]}
         onPress={actions.saveFromAddress}
       >
         Save

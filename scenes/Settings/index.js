@@ -29,7 +29,12 @@ const SettingsScene = (props) => {
   const { actions } = props;
   return (
     <View style={{ paddingTop: 64, flex: 1, backgroundColor: '#F7FAFF' }}>
-      <View style={{ padding: 0 }}>
+      <View style={{
+        padding: 0,
+        width: '90%',
+        marginLeft: '5%',
+        marginRight: '5%'
+      }}>
         <View style={{ marginTop: 30 }}>
           <BaseButton onPress={actions.updateInfo}>
             Update Sender Info
