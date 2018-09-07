@@ -8,7 +8,7 @@ import LoginScene from './scenes/Login';
 import PostcardScene from './scenes/Postcards';
 import SettingsScene from './scenes/Settings';
 import CorvidNavBar from './components/CorvidNavBar';
-import PreviewScene from './scenes/Preview';
+import NewPostcardScene from './scenes/NewPostcard';
 import FromAddressScene from './scenes/FromAddress';
 import * as actionCreators from './actionCreators';
 
@@ -39,9 +39,9 @@ const renderRouter = (showRouter) => {
             navBar={CorvidNavBar}
           />
           <Scene
-            key="preview"
-            component={PreviewScene}
-            title="Preview"
+            key="newPostcard"
+            component={NewPostcardScene}
+            title="New Postcard"
             navBar={CorvidNavBar}
           />
         </Scene>

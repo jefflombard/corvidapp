@@ -13,5 +13,5 @@ export const goHome = () => () => {
 };
 
 export const newPostcard = () => () => {
-  Actions.preview();
+  Actions.newPostcard();
 };
