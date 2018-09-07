@@ -10,9 +10,10 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'rgba(255, 255, 255, 0.25)',
+    backgroundColor: 'rgba(255,255,255,.25)',
+    marginTop: 10,
     height: 45,
-    width: 285,
+    width: '100%',
   },
 });
 

@@ -14,6 +14,7 @@ import LogoContainer from './LogoContainer';
 import CorvidTextInput from './CorvidTextInput';
 import BrandButton from '../../components/BrandButton';
 import * as actionCreators from '../../actionCreators';
+import FacebookLoginButton from './FacebookLoginButton';
 
 const styles = StyleSheet.create({
   background: {
@@ -101,14 +102,18 @@ const LoginScene = (props) => {
         <BrandButton onPress={signUpAction}>
           { signUpText }
         </BrandButton>
+        {!isSignUp && (
+          <TouchableOpacity onPress={actions.forgotPassword}>
+            <Text style={{ marginTop: 10, textAlign: 'center' }}>
+              Forgot Password?
+            </Text>
+          </TouchableOpacity>
+        )}
+        <Text style={{ textAlign: 'center', marginTop: 10 }}>
+          {`or${signUpText}with`}
+        </Text>
+        <FacebookLoginButton />
       </View>
-      {!isSignUp && (
-        <TouchableOpacity onPress={actions.forgotPassword}>
-          <Text style={{ marginTop: 10 }}>
-            Forgot Password?
-          </Text>
-        </TouchableOpacity>
-      )}
     </ImageBackground>
   );
 };
