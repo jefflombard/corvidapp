@@ -33,8 +33,9 @@ const SettingsScene = (props) => {
         padding: 0,
         width: '90%',
         marginLeft: '5%',
-        marginRight: '5%'
-      }}>
+        marginRight: '5%',
+      }}
+      >
         <View style={{ marginTop: 30 }}>
           <BaseButton onPress={actions.updateInfo}>
             Update Sender Info

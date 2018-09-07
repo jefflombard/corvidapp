@@ -41,8 +41,8 @@ const styles = StyleSheet.create({
   placeholder: {
     marginLeft: 'auto',
     marginRight: 'auto',
-    width: 300,
-    height: 200,
+    width: 150,
+    height: 100,
     overflow: 'hidden',
     resizeMode: 'contain',
   },
@@ -59,13 +59,13 @@ const styles = StyleSheet.create({
 });
 
 const NewPostcardScene = (props) => {
-  const { actions } = props;
+  const { actions, newPostcard } = props;
   return (
     <View style={{ paddingTop: 64, flex: 1, backgroundColor: '#F7FAFF' }}>
       <ScrollView style={styles.contentContainer}>
         <View>
           <Text style={styles.sectionText}>
-            PHOTO
+            FRONT PHOTO
           </Text>
           <TouchableOpacity style={styles.placeholderContainer}>
             <Image
@@ -82,11 +82,16 @@ const NewPostcardScene = (props) => {
             style={[
               styles.placeholderContainer,
               styles.textContainer,
-              { height: 45 }]
+              {
+                height: 45,
+                marginLeft: 5,
+                marginRight: 5,
+                paddingRight: 5,
+              }]
             }
           >
-            <Text style={{ fontSize: 17 }}>
-              Set Send To Address
+            <Text numberOfLines={1} style={{ fontSize: 17 }}>
+              {`${newPostcard.toAddress.name} ${newPostcard.toAddress.address} ${newPostcard.toAddress.city}`}
             </Text>
           </TouchableOpacity>
         </View>
@@ -98,11 +103,17 @@ const NewPostcardScene = (props) => {
             style={[
               styles.placeholderContainer,
               styles.textContainer,
-              { height: 45 }]
+              {
+                height: 125,
+                marginLeft: 5,
+                marginRight: 5,
+                justifyContent: 'flex-start',
+                paddingTop: 10,
+              }]
             }
           >
-            <Text style={{ fontSize: 17 }}>
-              Write a message...
+            <Text numberOfLines={5} style={{ fontSize: 17 }}>
+              {newPostcard.message}
             </Text>
           </TouchableOpacity>
         </View>
@@ -119,7 +130,7 @@ const NewPostcardScene = (props) => {
   );
 };
 
-const mapStateToProps = state => ({ ui: state.ui });
+const mapStateToProps = state => ({ ui: state.ui, newPostcard: state.newPostcard });
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators(actionCreators, dispatch) });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewPostcardScene);
