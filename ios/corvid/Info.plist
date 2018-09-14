@@ -4,20 +4,12 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
-
 	<key>NSCameraUsageDescription</key>
 	<string>If you want to send photos via postcard, Corvid needs to access your camera.</string>
-
-	<!-- Include this only if you are planning to use the camera roll -->
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>If you want to send photos via postcard, Corvid needs to access your photo library.</string>
-
-	<!-- Include this only if you are planning to use the camera roll -->
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>If you want to send photos via postcard, Corvid needs to access your photo library.</string>
-
-
-	<string>Your message to user when the photo library is accessed for the first time</string>
 	<key>CFBundleDisplayName</key>
 	<string>$(DISPLAY_NAME)</string>
 	<key>CFBundleExecutable</key>

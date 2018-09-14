@@ -26,4 +26,6 @@ target 'corvid' do
   pod 'Fabric', '~> 1.7.5'
   pod 'Crashlytics', '~> 3.10.4'
 
+  pod 'react-native-camera', :path => '../node_modules/react-native-camera'
+
 end
