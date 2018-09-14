@@ -10,6 +10,8 @@ import SettingsScene from './scenes/Settings';
 import CorvidNavBar from './components/CorvidNavBar';
 import NewPostcardScene from './scenes/NewPostcard';
 import FromAddressScene from './scenes/FromAddress';
+import PostcardPhoto from './scenes/PostcardPhoto';
+
 import * as actionCreators from './actionCreators';
 
 // For Testing Only
@@ -20,6 +22,12 @@ const renderRouter = (showRouter) => {
     return (
       <Router>
         <Scene key="root">
+          <Scene
+            key="postcardphoto"
+            component={PostcardPhoto}
+            title="New Postcard Photo"
+            hideNavBar={true}
+          />
           <Scene
             key="postcards"
             component={PostcardScene}

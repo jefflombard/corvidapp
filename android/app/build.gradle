@@ -153,6 +153,14 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-firebase')
+    compile project(':react-native-camera')
+    compile project(':react-native-firebase')
+    compile project(':react-native-camera')
+    compile project(':react-native-firebase')
+    compile project(':react-native-camera')
+    compile project(':react-native-firebase')
+    compile project(':react-native-camera')
     compile project(':react-native-camera')
     compile project(':react-native-firebase')
   implementation(project(':react-native-firebase')) {
