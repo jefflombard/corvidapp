@@ -25,6 +25,22 @@ target 'corvid' do
   # pod 'Firebase/Performance', '~> 5.3.0'
   pod 'Fabric', '~> 1.7.5'
   pod 'Crashlytics', '~> 3.10.4'
+  pod 'React', :path => '../node_modules/react-native', :subspecs => [
+      'Core',
+      'CxxBridge',
+      'DevSupport',
+      'RCTActionSheet',
+      'RCTAnimation',
+      'RCTGeolocation',
+      'RCTImage',
+      'RCTLinkingIOS',
+      'RCTNetwork',
+      'RCTSettings',
+      'RCTText',
+      'RCTVibration',
+      'RCTWebSocket',
+    ]
+  pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
   pod 'react-native-camera', :path => '../node_modules/react-native-camera'
 
 end
