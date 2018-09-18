@@ -30,7 +30,7 @@ const PostcardScene = (props) => {
         Login
       </Text>
       <View style={styles.buttonContainer}>
-        <BrandButton onPress={actions.newPostcard}>
+        <BrandButton onPress={actions.postcardPhoto}>
           New Postcard
         </BrandButton>
       </View>

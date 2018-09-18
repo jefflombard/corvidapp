@@ -16,6 +16,10 @@ export const newPostcard = () => () => {
   Actions.newPostcard();
 };
 
+export const postcardPhoto = () => () => {
+  Actions.postcardPhoto();
+};
+
 export const goBack = () => () => {
   Actions.pop();
 };

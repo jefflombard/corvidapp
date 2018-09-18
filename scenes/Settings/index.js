@@ -65,7 +65,7 @@ const SettingsScene = (props) => {
         >
           Cancel
         </BaseButton>
-        <BrandButton onPress={actions.goHome}>
+        <BrandButton onPress={actions.goBack}>
           Back
         </BrandButton>
       </View>

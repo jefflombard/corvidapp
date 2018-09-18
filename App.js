@@ -23,35 +23,38 @@ const renderRouter = (showRouter) => {
       <Router>
         <Scene key="root" tabs>
           <Scene
-            key="postcardphoto"
+            key="postcardPhoto"
             component={PostcardPhoto}
             title="New Postcard Photo"
-            hideNavBar={true}
+            hideNavBar
+            hideTabBar
           />
-          <Scene
-            key="postcards"
-            component={PostcardScene}
-            title="Sent Postcards"
-            navBar={CorvidNavBar}
-          />
-          <Scene
-            key="settings"
-            component={SettingsScene}
-            title="Settings"
-            navBar={CorvidNavBar}
-          />
-          <Scene
-            key="updateInfo"
-            component={FromAddressScene}
-            title="Update Info"
-            navBar={CorvidNavBar}
-          />
-          <Scene
-            key="newPostcard"
-            component={NewPostcardScene}
-            title="New Postcard"
-            navBar={CorvidNavBar}
-          />
+          <Scene key="tabbar">
+            <Scene
+              key="postcards"
+              component={PostcardScene}
+              title="Sent Postcards"
+              navBar={CorvidNavBar}
+            />
+            <Scene
+              key="settings"
+              component={SettingsScene}
+              title="Settings"
+              navBar={CorvidNavBar}
+            />
+            <Scene
+              key="updateInfo"
+              component={FromAddressScene}
+              title="Update Info"
+              navBar={CorvidNavBar}
+            />
+            <Scene
+              key="newPostcard"
+              component={NewPostcardScene}
+              title="New Postcard"
+              navBar={CorvidNavBar}
+            />
+          </Scene>
         </Scene>
       </Router>
     );
