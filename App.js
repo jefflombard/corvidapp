@@ -21,7 +21,7 @@ const renderRouter = (showRouter) => {
   if (showRouter) {
     return (
       <Router>
-        <Scene key="root">
+        <Scene key="root" tabs>
           <Scene
             key="postcardphoto"
             component={PostcardPhoto}

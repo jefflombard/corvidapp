@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
   settings: {
-    marginLeft: 10,
+    marginLeft: '5%',
   },
 });
 const gear = require('./gear.png');
