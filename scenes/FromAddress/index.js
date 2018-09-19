@@ -90,7 +90,6 @@ const AddressScene = (props) => {
       >
         <BaseButton
           onPress={actions.goBack}
-          style={[styles.container]}
         >
           Cancel
         </BaseButton>
