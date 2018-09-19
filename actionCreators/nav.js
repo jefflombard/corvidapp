@@ -9,7 +9,7 @@ export const updateInfo = () => () => {
 };
 
 export const goHome = () => () => {
-  Actions.postcards();
+  Actions.posttab();
 };
 
 export const newPostcard = () => () => {

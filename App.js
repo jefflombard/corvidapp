@@ -29,17 +29,11 @@ const renderRouter = (showRouter) => {
             hideNavBar
             hideTabBar
           />
-          <Scene key="tabbar">
+          <Scene key="posttab" tabs>
             <Scene
               key="postcards"
               component={PostcardScene}
               title="Sent Postcards"
-              navBar={CorvidNavBar}
-            />
-            <Scene
-              key="settings"
-              component={SettingsScene}
-              title="Settings"
               navBar={CorvidNavBar}
             />
             <Scene
@@ -56,6 +50,12 @@ const renderRouter = (showRouter) => {
             />
           </Scene>
         </Scene>
+        <Scene
+          key="settings"
+          component={SettingsScene}
+          title="Settings"
+          navBar={CorvidNavBar}
+        />
       </Router>
     );
   }
