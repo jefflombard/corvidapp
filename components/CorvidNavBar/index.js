@@ -13,7 +13,7 @@ import * as actionCreators from '../../actionCreators';
 
 const styles = StyleSheet.create({
   container: {
-    height: 64,
+    height: 80,
     position: 'absolute',
     width: '100%',
     flexDirection: 'row',
@@ -29,10 +29,14 @@ const styles = StyleSheet.create({
     width: '50%',
     textAlign: 'center',
     left: '25%',
+    height: 20,
+    alignItems: 'center',
   },
   credits: {
     marginRight: 10,
     flexDirection: 'row',
+    height: 20,
+    alignItems: 'center',
   },
   creditText: {
     marginLeft: 10,
@@ -40,6 +44,8 @@ const styles = StyleSheet.create({
   },
   settings: {
     marginLeft: '5%',
+    height: 20,
+    alignItems: 'center',
   },
 });
 const gear = require('./gear.png');

@@ -29,14 +29,14 @@ const styles = StyleSheet.create({
   },
   settings: {
     position: 'absolute',
-    top: 30,
+    top: 47.5,
     left: '5%',
     zIndex: 4,
   },
   buttonGroup: {
     position: 'absolute',
     right: '5%',
-    top: 30,
+    top: 47.5,
     zIndex: 4,
     width: 70,
     flexDirection: 'row',
@@ -46,7 +46,6 @@ const styles = StyleSheet.create({
   baseButtonGroup: {
     position: 'absolute',
     bottom: 30,
-    left: 0,
     paddingLeft: '10%',
     paddingRight: '10%',
     zIndex: 4,
@@ -94,10 +93,15 @@ const PostcardPhotoScene = (props) => {
         </TouchableOpacity>
       </View>
       <View style={styles.baseButtonGroup}>
-        <TouchableOpacity onPress={actions.goHome}>
+        <TouchableOpacity
+          style={{ width: 50 }}
+          onPress={actions.goHome}
+        >
           <Image source={postcardGroup} />
         </TouchableOpacity>
-        <TouchableOpacity onPress={actions.goHome}>
+        <TouchableOpacity
+          onPress={actions.goHome}
+        >
           <View style={{
             height: 60,
             width: 60,
@@ -107,7 +111,10 @@ const PostcardPhotoScene = (props) => {
           }}
           />
         </TouchableOpacity>
-        <TouchableOpacity onPress={actions.goHome}>
+        <TouchableOpacity
+          style={{ width: 50 }}
+          onPress={actions.goHome}
+        >
           <Image source={photoGroup} />
         </TouchableOpacity>
       </View>
