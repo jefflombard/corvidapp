@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
   View,
   StyleSheet,
@@ -77,67 +77,79 @@ const renderFlash = (isFlash, action) => {
   );
 };
 
-const PostcardPhotoScene = (props) => {
-  const { actions, cameraUi } = props;
-  return (
-    <View style={{ flex: 1 }}>
-      <TouchableOpacity style={styles.settings} onPress={actions.openSettings}>
-        <Image source={gear} />
-      </TouchableOpacity>
-      <View style={styles.buttonGroup}>
-        {renderFlash(cameraUi.flash, actions.toggleFlash)}
-        <TouchableOpacity
-          onPress={actions.toggleDirection}
-        >
-          <Image source={flip} />
+class PostcardPhotoScene extends Component {
+
+  takePicture = async function() {
+    if (this.camera) {
+      const options = { quality: 0.5, base64: true };
+      const data = await this.camera.takePictureAsync(options)
+      console.log(data.uri);
+    }
+  };
+
+  render() {
+    const { actions, cameraUi } = this.props;
+    return (
+      <View style={{ flex: 1 }}>
+        <TouchableOpacity style={styles.settings} onPress={actions.openSettings}>
+          <Image source={gear} />
         </TouchableOpacity>
-      </View>
-      <View style={styles.baseButtonGroup}>
-        <TouchableOpacity
-          style={{ width: 50 }}
-          onPress={actions.goHome}
-        >
-          <Image source={postcardGroup} />
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={actions.goHome}
-        >
-          <View style={{
-            height: 60,
-            width: 60,
-            borderRadius: 30,
-            borderWidth: 3,
-            borderColor: '#fff',
+        <View style={styles.buttonGroup}>
+          {renderFlash(cameraUi.flash, actions.toggleFlash)}
+          <TouchableOpacity
+            onPress={actions.toggleDirection}
+          >
+            <Image source={flip} />
+          </TouchableOpacity>
+        </View>
+        <View style={styles.baseButtonGroup}>
+          <TouchableOpacity
+            style={{ width: 50 }}
+            onPress={actions.goHome}
+          >
+            <Image source={postcardGroup} />
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={actions.goHome}
+          >
+            <View style={{
+              height: 60,
+              width: 60,
+              borderRadius: 30,
+              borderWidth: 3,
+              borderColor: '#fff',
+            }}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{ width: 50 }}
+            onPress={actions.goHome}
+          >
+            <Image source={photoGroup} />
+          </TouchableOpacity>
+        </View>
+        <RNCamera
+          ref={(ref) => {
+            this.camera = ref;
           }}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={{ width: 50 }}
-          onPress={actions.goHome}
-        >
-          <Image source={photoGroup} />
-        </TouchableOpacity>
-      </View>
-      <RNCamera
-        style={styles.preview}
-        flashMode={
-          cameraUi.flash
-            ? RNCamera.Constants.FlashMode.on
-            : RNCamera.Constants.FlashMode.off
-        }
-        type={
-          cameraUi.front
-            ? RNCamera.Constants.Type.front
-            : RNCamera.Constants.Type.back
+          style={styles.preview}
+          flashMode={
+            cameraUi.flash
+              ? RNCamera.Constants.FlashMode.on
+              : RNCamera.Constants.FlashMode.off
           }
-        permissionDialogTitle="Permission to use camera"
-        permissionDialogMessage="We need your permission to use your camera phone"
-      />
-
-
-    </View>
-  );
-};
+          type={
+            cameraUi.front
+              ? RNCamera.Constants.Type.front
+              : RNCamera.Constants.Type.back
+            }
+          permissionDialogTitle="Permission to use camera"
+          permissionDialogMessage="We need your permission to use your camera phone"
+        />
+      </View>
+    );
+  }
+}
 
 const mapStateToProps = state => ({ cameraUi: state.cameraUi });
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators(actionCreators, dispatch) });
