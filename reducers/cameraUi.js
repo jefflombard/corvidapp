@@ -1,6 +1,6 @@
 const initialState = {
   flash: false,
-  front: true,
+  front: false,
 };
 
 export default (state = initialState, action) => {
